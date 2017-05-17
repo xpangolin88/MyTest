@@ -22,11 +22,11 @@ function pause(){
   		echo "1. Codigo de acceso"
   		echo "2. Jugar"
   		echo "3. Creditos"
-  		echo "4. Creador"
+  		echo "4. TIC TAC TOE"
   		echo "0. Salir"
   		echo -n "Elija una opción: "; read opcion
 
-		if [$opcion == null]; then
+		if [ -z $opcion ]; then
 			jumpto menu
 
   		elif [ $opcion == 1 ]; then
@@ -85,21 +85,24 @@ function pause(){
 
 
 		elif [ $opcion == 3 ]; then
-    			echo -n "¿Cuantas veces quieres repetir el mensaje? "; read veces
-    			echo -n "¿Que mensaje quieres mostrar? "; read mensaje
-    			x=1
-    			while [ $x -le $veces ]; do
-      				clear
-      			echo $x. $mensaje
-      			x=$(($x+1))
-    			done
+    			#Creditos
+
+			ps aux
+			logname
+			echo "Francisco Vàzquez N\`Mira"
+			echo "Curso: ASIR-1º"
+			echo "Asignatura: ISO"
+			echo "Profesor: Antonio Lopez"
+			pause 'Press [enter] key to continue......'
+			jumpto menu
+
   		elif [ $opcion == 0 ]; then
     			echo "Hasta luego Lucas!!!"
   		else
 			echo "opcion incorrecta"
 		fi
 			pause 'press [Enter] key to continue....'
-			jumpto menu
+			exit
 		read
 		done
 

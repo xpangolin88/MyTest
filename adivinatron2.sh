@@ -49,5 +49,6 @@ echo $CONTADOR:$NOMBRE >> record.txt
 sort record.txt -n | head -5 > recordtemp.txt
 cp recordtemp.txt record.txt
 echo Adios...........
+sleep 4
 ./menu.sh
 

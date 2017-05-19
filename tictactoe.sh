@@ -128,7 +128,7 @@ echo -e " ${REVERT} La reglas son, introducir un número en la caja entre 0 a 8"
 read -n 1 -p "Para continuar escribe y, o introduce m para ir al menu : " y
 echo -e "\n"
 sleep 1
-     if [ -z "$y" ]; then
+     if [ -z "$y" ] && [ -z "$m" ]; then
 	echo Valor incorrecto
 	jumpto inicio
     elif  [ "$y" == "y" ]  ||  [ "$y" == "Y" ]; then
@@ -138,6 +138,10 @@ sleep 1
     elif [ "$y" == "m" ] || [ "$y" == "M" ]; then
      echo -e "\nGracias por usarlo !!"
      ./menu.sh
+   elif  [ "$y" != "y" ]  ||  [ "$y" != "Y" ]; then
+       jumpto inicio
+   elif  [ "$y" == "m" ]  ||  [ "$y" == "M" ]; then
+	jumpto inicio
     fi
                 
  tic_board

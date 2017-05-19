@@ -23,6 +23,7 @@ function pause(){
   		echo "2. Jugar"
   		echo "3. Creditos"
   		echo "4. TIC TAC TOE"
+		echo "5. Comparacion de nombres"
   		echo "0. Salir"
   		echo -n "Elija una opción: "; read opcion
 
@@ -77,7 +78,6 @@ function pause(){
    			echo -ne '####################(100%)\r'
 			echo -ne '\n'
 			#llamada del programa
-				logname
 				pause 'Press [Enter] key to continue'
 			#llamada al lanzador
 				jumpto lanzador
@@ -88,16 +88,25 @@ function pause(){
     			#Creditos
 
 			ps aux
-			logname
+			user=logname
 			echo "Francisco Vàzquez N\`Mira"
 			echo "Curso: ASIR-1º"
 			echo "Asignatura: ISO"
 			echo "Profesor: Antonio Lopez"
+			echo "Usuario utilizado: $user "
 			pause 'Press [enter] key to continue......'
 			jumpto menu
 
+		elif [ $opcion == 4 ]; then
+		#llamada al juego
+			jumpto tictactoe
+
+		elif [ $opcion == 5 ]; then
+		#llamada a la comparacion
+			jumpto comparacion
+
   		elif [ $opcion == 0 ]; then
-    			echo "Hasta luego Lucas!!!"
+    			echo "Adios, esperamos su vuelta"
   		else
 			echo "opcion incorrecta"
 		fi
@@ -128,3 +137,10 @@ acceso:
 
 lanzador:
 	./adivinatron2.sh
+
+tictactoe:
+
+	./tictactoe.sh
+
+comparacion:
+	./comparacion.sh
